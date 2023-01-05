@@ -7,11 +7,36 @@
     <title>Michis aleatorios</title>
 </head>
 <body>
-    <h1>Michis aleatorios</h1>
+    <h1>Michis App</h1>
 
-    <img alt="gatito aleatorio">
-    
-    <button>michi</button>
+    <span id="error"></span>
+
+    <section id="randomMichis">
+        <h2>Michis aleatorio</h2>
+
+        <article>
+            <img id="img1" width="150px" alt="gatito aleatorio">
+            <button>Guardar michi en favoritos</button>
+        </article>
+        <article>
+            <img id="img2" width="150px" alt="gatito aleatorio">
+            <button>Guardar michi en favoritos</button>
+        </article>
+
+
+
+        <button onclick="loadRandomMichis()">Recargar</button> <!--llamamos a una función-->
+    </section>
+
+    <section id="favMichis">
+        <h2>Michis favoritos</h2>
+
+        <article>
+            <img id="img1" width="150px" alt="gatito aleatorio">
+            <button>Sacar al michi de favoritos</button>
+        </article>
+    </section>
+
 
     <script src="./main.js"></script>
 </body>
