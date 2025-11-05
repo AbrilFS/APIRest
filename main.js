@@ -2,9 +2,11 @@
 //1. creamos una variable const donde gaurdaremos la URL que queremos jalar.
 const API_URL_RANDOM = " https://api.thecatapi.com/v1/images/search?limit=2&api_key=live_m5WVjh8WDktqF6Av3UiYrYjbC8W9Apr8nVYrxAQApktG62PAvihGIvhjb7LjMzAg";
 
-const API_URL_FAV = " https://api.thecatapi.com/v1/favourites?api_key=live_m5WVjh8WDktqF6Av3UiYrYjbC8W9Apr8nVYrxAQApktG62PAvihGIvhjb7LjMzAg";
+const API_URL_FAV = " https://api.thecatapi.com/v1/favourites";
 
 const API_URL_FAV_DELETE = (id) =>`https://api.thecatapi.com/v1/favourites/${id}favouriteId?api_key=live_9apQSZpNSuP47RFiTEXCT9mqGiHTa71dHtpG6LDSh8i43mRfQqieBcvDAkuU6yR9`;
+
+const API_KEY = 'live_m5WVjh8WDktqF6Av3UiYrYjbC8W9Apr8nVYrxAQApktG62PAvihGIvhjb7LjMzAg'
 
 const spanError= document.getElementById("error") //se invoca en caso de que el status de nuestro llamado al API sea distinto a 200
 
@@ -33,7 +35,12 @@ const spanError= document.getElementById("error") //se invoca en caso de que el 
     }
 
  async function loadFavMichis(){
-    const res = await fetch (API_URL_FAV); 
+    const res = await fetch (API_URL_FAV, {
+        method: 'GET',
+        headers: {
+            'x-api-key': 'live_m5WVjh8WDktqF6Av3UiYrYjbC8W9Apr8nVYrxAQApktG62PAvihGIvhjb7LjMzAg',
+        }
+    }); 
     const data= await res.json();
             console.log("Favoritos")
             console.log(data)
@@ -76,6 +83,7 @@ const spanError= document.getElementById("error") //se invoca en caso de que el 
             method: 'POST',  //debemos especificar el método porque por defect es GET
             headers: {
                 'Content-Type': 'application/json',
+                'x-api-key': 'live_m5WVjh8WDktqF6Av3UiYrYjbC8W9Apr8nVYrxAQApktG62PAvihGIvhjb7LjMzAg',
             },
             body: JSON.stringify({
                 image_id: id
