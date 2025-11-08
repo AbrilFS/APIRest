@@ -237,7 +237,7 @@ const uploadPhoto = async () => {
     console.log(formData.get('file'));
 
     try {
-        // your code here
+        
         const response = await fetch(API_URL_UPLOAD, {
             method: 'POST',
             headers: {
